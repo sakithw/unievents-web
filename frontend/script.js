@@ -2,7 +2,7 @@ let events = [];
 
 async function loadEvents() {
     try {
-        const response = await fetch('http://localhost:5000/api/events');
+        const response = await fetch('/api/events');
         const data = await response.json();
         
         if (data.success) {
@@ -66,7 +66,7 @@ async function register(id) {
     }
 
     try {
-        const response = await fetch(`http://localhost:5000/api/events/${id}/register`, {
+        const response = await fetch(`/api/events/${id}/register`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

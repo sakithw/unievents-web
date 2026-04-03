@@ -4,7 +4,7 @@ let allEvents = [];
 
 async function loadAdminEvents() {
     try {
-        const response = await fetch('http://localhost:5000/api/events');
+        const response = await fetch('/api/events');
         const data = await response.json();
         allEvents = data.events;
         const list = document.getElementById('admin-event-list');
@@ -61,7 +61,7 @@ async function saveEdit() {
     };
 
     try {
-        const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+        const response = await fetch(`/api/events/${id}`, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ async function handleAddEvent(event) {
     if (img) payload.img = img;
 
     try {
-        const response = await fetch('http://localhost:5000/api/events', {
+        const response = await fetch('/api/events', {
             method: 'POST',
             headers: { 
                 'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ async function deleteEvent(id) {
     const token = localStorage.getItem('token');
 
     try {
-        const response = await fetch(`http://localhost:5000/api/events/${id}`, {
+        const response = await fetch(`/api/events/${id}`, {
             method: 'DELETE',
             headers: { 'Authorization': `Bearer ${token}` }
         });
